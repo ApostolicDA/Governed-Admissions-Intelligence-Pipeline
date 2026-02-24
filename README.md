@@ -1,3 +1,8 @@
+
+# 🎓 Governed Admissions Intelligence Pipeline  
+**From Raw Admissions Data to Validated Executive Dashboard**
+
+---
 ## 🚀 What I Built
 
 Designed and implemented a governed admissions analytics system that:
@@ -9,11 +14,6 @@ Designed and implemented a governed admissions analytics system that:
 • Implemented SQL-based metric reconciliation to ensure BI accuracy  
 
 This project demonstrates production-style data engineering, governance, and business intelligence validation.
-# 🎓 Governed Admissions Intelligence Pipeline  
-**From Raw Admissions Data to Validated Executive Dashboard**
-
----
-
 ## 📌 Overview
 
 This project delivers an end-to-end admissions analytics pipeline integrating four fragmented datasets (**Applicant, Connect, Outreach, SEVIS**) into a governed PostgreSQL warehouse powering a fully validated executive dashboard in Looker Studio.
@@ -120,7 +120,14 @@ All metrics reconciled successfully, confirming dashboard accuracy and filter in
 - Fall intake dominates, creating operational bottlenecks  
 
 ---
+## 📈 Business Impact
 
+- Identified 58% yield rate from admitted students
+- Exposed geographic concentration risk (India & Nigeria dependency)
+- Highlighted STEM program dominance (~40% concentration)
+- Revealed 99% missing Country data risk
+- Improved stakeholder trust via SQL-backed KPI validation
+---
 ## ⚠️ Data Risks Identified
 
 - 99% missing Country data → Citizenship used as proxy  
