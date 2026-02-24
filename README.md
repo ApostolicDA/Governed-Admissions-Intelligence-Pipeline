@@ -1,166 +1,179 @@
 # 🎓 Governed Admissions Intelligence Pipeline  
-### From Fragmented Data to Validated Executive Insight  
-**SQL • PostgreSQL • Data Governance • Looker Studio**
+**From Raw Admissions Data to Validated Executive Dashboard**
 
 ---
 
-## 🚨 The Problem
+## 📌 Overview
 
-Saint Louis University’s international admissions data existed across four disconnected systems:
+This project delivers an end-to-end admissions analytics pipeline integrating four fragmented datasets (**Applicant, Connect, Outreach, SEVIS**) into a governed PostgreSQL warehouse powering a fully validated executive dashboard in Looker Studio.
 
-- Applicant Records  
-- Outreach Data  
-- Connect Engagement Logs  
-- SEVIS Visa Status  
+The system was designed to:
 
-The data was fragmented, inconsistent, and unreliable for executive-level decision-making.
+- Clean and standardize 6,800+ application records  
+- Resolve data quality issues (NULL handling, timestamp inconsistencies, one-to-many relationships)  
+- Engineer a master integration layer using SQL  
+- Build a dynamic admissions funnel dashboard  
+- Implement a SQL-based KPI validation framework  
+- Ensure full metric reconciliation between database and visualization layer  
 
-Key challenges included:
-
-- Scientific notation timestamps (e.g., 1.75E+12)
-- String "NULL" values corrupting calculations
-- One-to-many outreach duplication
-- Missing Country data
-- Dashboard metrics with no validation layer
-
-Without proper governance, any visualization built on this foundation risked being misleading.
+All dashboard metrics were validated directly against the PostgreSQL master dataset to ensure governance, accuracy, and stakeholder trust.
 
 ---
 
-## 🎯 The Objective
+## 🏢 Business Problem
 
-To design a **governed analytics pipeline** that:
+The admissions data ecosystem suffered from:
 
-1. Integrates four raw datasets into a unified PostgreSQL warehouse  
-2. Cleans and standardizes data for analytical integrity  
-3. Builds an executive-facing Looker Studio dashboard  
-4. Validates every KPI directly in SQL  
-5. Ensures full reconciliation between database and visualization layer  
+- Fragmented data sources across four systems  
+- Inconsistent timestamp formats (epoch vs string dates)  
+- 90%+ missing Country data  
+- One-to-many outreach records inflating funnel counts  
+- Misaligned aggregation logic between database and dashboard  
 
-This was not just a dashboard project.  
-It was a **data integrity project**.
-
----
-
-## 🛠 Technical Architecture
-
-### Data Layer
-- PostgreSQL (pgAdmin 4)
-- Staging tables for raw ingestion
-- Structured SQL transformations
-
-### Governance Controls
-- Scientific notation timestamp correction
-- Explicit NULL normalization (`NULLIF`)
-- Date standardization (`YYYY-MM-DD`)
-- Financial field numeric casting
-- Deduplication using `DISTINCT ON`
-- Outreach history consolidation via `STRING_AGG`
-- LEFT JOIN strategy to preserve applicant records
-
-### Visualization Layer
-- Looker Studio Executive Dashboard
-- Funnel Analysis
-- Financial Metrics
-- Geographic Segmentation
-- Interactive Filtering
-
-### Validation Layer
-All KPIs recalculated using SQL aggregation queries and reconciled against dashboard outputs.
-
-No unresolved discrepancies remained.
+Without validation controls, KPI reporting risked inaccuracies that could misinform strategic decisions.
 
 ---
 
-## 🔄 End-to-End Data Pipeline
+## 🏗 Data Architecture
 
-1. Raw CSV ingestion into staging tables  
-2. Data cleaning and type enforcement  
-3. Controlled master dataset integration  
-4. Export to visualization layer  
-5. SQL-based KPI validation  
-6. Reconciliation of filters and aggregations  
+**Raw CSV Files**  
+→ PostgreSQL Staging Tables  
+→ Data Cleaning & Standardization Layer  
+→ Master Integrated Table (`master_applicants`)  
+→ Looker Studio Executive Dashboard  
+→ SQL Validation & Reconciliation Layer  
 
-This ensured traceability from raw record → final executive insight.
-
----
-
-## 📊 Validated Executive Insights
-
-- **6,893 Total Applicants**
-- **37.8% Admission Rate**
-- **58% Yield Rate (Admit → Deposit)**
-- **$13.4M Potential Tuition Revenue**
-- Strong financial surplus reduces visa risk
-- High recruitment concentration in India & Nigeria
-- Heavy program dependency on STEM streams
-
-All metrics were confirmed directly from the master PostgreSQL dataset.
+This architecture ensures that visualization metrics are fully governed by database logic.
 
 ---
 
-## ⚠️ Key Data Risks Identified
+## 🧹 Data Engineering Highlights
 
-- 90%+ missing Country data (required pivot to Citizenship)
-- Funnel distortion risk from one-to-many outreach joins
-- Financial metric sensitivity to NULL handling
-- Program dependency concentration risk
-- Geographic over-reliance on limited regions
-
-These risks were mitigated through structured SQL governance controls.
-
----
-
-## 💡 Strategic Recommendations
-
-1. Diversify recruitment markets to reduce geographic dependency  
-2. Normalize categorical fields to prevent dashboard aggregation drift  
-3. Implement automated ETL validation checks  
-4. Expand tracking of financial surplus vs visa outcomes  
-5. Introduce time-series analysis using standardized timestamps  
+- Converted epoch timestamps using `TO_TIMESTAMP()`  
+- Standardized NULL values using `NULLIF()`  
+- Preserved full applicant base using LEFT JOIN integration  
+- Consolidated one-to-many outreach records using `DISTINCT ON` and `STRING_AGG()`  
+- Created binary indicator flags for accurate funnel metrics  
+- Implemented numeric casting for financial aggregation  
+- Ensured no duplicate inflation of deposit or admission counts  
 
 ---
 
-## 👤 My Role
+## 📊 Executive Dashboard KPIs
 
-**Team Lead – Data Governance & SQL Validation**
+The validated dashboard includes:
 
-- Designed master dataset integration strategy  
-- Implemented SQL cleaning transformations  
-- Led KPI validation and reconciliation process  
-- Ensured dashboard integrity through structured SQL verification  
-- Consolidated and standardized final analytical outputs  
+- Total Applicants  
+- Admission Rate (37.8%)  
+- Yield Rate (58%)  
+- Tuition Revenue (~$13.4M Potential)  
+- Financial Surplus  
+- Funnel Analysis (Applied → Admitted → Deposit)  
+- Citizenship Leaderboard  
+- Program Popularity Distribution  
 
----
-
-## 🧠 Why This Project Matters
-
-Dashboards without validation can mislead stakeholders.
-
-This project demonstrates the ability to:
-
-- Engineer reliable analytical systems  
-- Think beyond visualization into governance  
-- Detect and correct metric distortion risks  
-- Deliver executive-ready, validated insights  
-
-It reflects a commitment to building analytics systems where **accuracy precedes aesthetics**.
+All metrics were reconciled against PostgreSQL queries.
 
 ---
 
-## 🔗 Live Dashboard
+## 🔐 KPI Validation & Governance Framework
 
-[Insert Looker Studio Link Here]
+To ensure metric integrity, each dashboard KPI was re-calculated directly in PostgreSQL using equivalent SQL aggregation queries.
+
+### Validation Process
+
+1. Identify dashboard KPI  
+2. Write equivalent SQL aggregation  
+3. Execute query on master dataset  
+4. Compare SQL output with dashboard metric  
+5. Reconcile discrepancies  
+
+### Filter-Level Validation
+
+The following interactive filters were validated using SQL WHERE clauses:
+
+- Citizenship filter (e.g., Zimbabwe)  
+- Intake filter (Fall 2024)  
+- Visa Status filter (Accepted)  
+
+All metrics reconciled successfully, confirming dashboard accuracy and filter integrity.
 
 ---
 
-## 📂 Repository Structure
+## 📈 Key Insights
 
-- `/sql` → Data cleaning and validation queries  
-- `/reports` → Dashboard and validation documentation  
-- `/screenshots` → Visual dashboard exports  
-- `/presentation` → Final executive presentation  
+- Strong 58% yield from admitted students  
+- Heavy applicant concentration in STEM programs  
+- Geographic dependency on a few key regions  
+- Financial surplus suggests strong visa readiness  
+- Fall intake dominates, creating operational bottlenecks  
 
 ---
 
-### Built with a Data Governance Mindset.
+## ⚠️ Data Risks Identified
+
+- 99% missing Country data → Citizenship used as proxy  
+- Counselor assignment stored in non-normalized format  
+- Timestamp inconsistency limits time-series analysis  
+- Null-sensitive financial aggregations  
+- Operational blind spots in outreach appointment tracking  
+
+---
+
+## 🚀 Future Enhancements
+
+- Automate ETL pipeline  
+- Normalize counselor assignment structure  
+- Implement timestamp standardization  
+- Build predictive yield model  
+- Develop visa approval correlation analysis  
+- Introduce automated data quality monitoring  
+
+---
+
+## 🛠 Tools Used
+
+- PostgreSQL (pgAdmin 4)  
+- SQL  
+- Looker Studio  
+- Microsoft Excel / CSV  
+- GitHub for documentation  
+
+---
+
+## 📸 Recommended Repository Structure
+
+
+Governed-Admissions-Intelligence-Pipeline/
+│
+├── README.md
+├── sql/
+│ ├── staging_queries.sql
+│ ├── cleaning_queries.sql
+│ ├── master_table_creation.sql
+│ ├── validation_queries.sql
+│
+├── assets/
+│ ├── architecture_diagram.png
+│ ├── dashboard_overview.png
+│ ├── funnel_closeup.png
+│ ├── financial_kpis.png
+│ ├── sql_validation_example.png
+│
+└── documentation/
+├── data_quality_report.pdf
+├── insight_summary_slides.pptx
+
+
+---
+
+## 🧠 What This Project Demonstrates
+
+- End-to-end analytics engineering  
+- Data governance implementation  
+- KPI reconciliation methodology  
+- Funnel logic validation  
+- Financial metric standardization  
+- Executive-ready dashboard design  
+
+This project reflects the full analytics lifecycle — from raw data ingestion to validated strategic insights.
