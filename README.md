@@ -1,3 +1,14 @@
+## 🚀 What I Built
+
+Designed and implemented a governed admissions analytics system that:
+
+• Integrated 4 raw operational systems into a centralized PostgreSQL warehouse  
+• Cleaned and standardized 6,800+ records  
+• Engineered a master analytical dataset  
+• Built an executive dashboard with validated KPIs  
+• Implemented SQL-based metric reconciliation to ensure BI accuracy  
+
+This project demonstrates production-style data engineering, governance, and business intelligence validation.
 # 🎓 Governed Admissions Intelligence Pipeline  
 **From Raw Admissions Data to Validated Executive Dashboard**
 
