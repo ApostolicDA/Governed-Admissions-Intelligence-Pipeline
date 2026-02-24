@@ -1,6 +1,3 @@
-# Governed-Admissions-Intelligence-Pipeline
-End-to-end governed admissions analytics system ensuring data integrity, metric accuracy, and executive-ready insights.
-
 # 🎓 Governed Admissions Intelligence Pipeline  
 ### From Fragmented Data to Validated Executive Insight  
 **SQL • PostgreSQL • Data Governance • Looker Studio**
