@@ -69,7 +69,7 @@ Key dashboard features:
 • Program popularity analysis  
 • Visa approval and outreach tracking  
 
-![Executive Dashboard](executive_dashboard.png)
+![Executive Dashboard](executive_dashboard.png.png)
 ---
 ## 🧹 Data Engineering Highlights
 
