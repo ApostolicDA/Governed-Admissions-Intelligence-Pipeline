@@ -57,7 +57,20 @@ Without validation controls, KPI reporting risked inaccuracies that could misinf
 This architecture ensures that visualization metrics are fully governed by database logic.
 
 ---
+## 📊 Executive Dashboard Overview
 
+The Looker Studio dashboard provides leadership with real-time insights into the admissions funnel, revenue potential, and geographic distribution of applicants.
+
+Key dashboard features:
+
+• Admissions funnel tracking (Applied → Admitted → Deposit)  
+• Tuition revenue and financial surplus monitoring  
+• Country-level applicant distribution  
+• Program popularity analysis  
+• Visa approval and outreach tracking  
+
+![Executive Dashboard](executive_dashboard.png)
+---
 ## 🧹 Data Engineering Highlights
 
 - Converted epoch timestamps using `TO_TIMESTAMP()`  
