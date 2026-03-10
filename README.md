@@ -46,7 +46,7 @@ Without validation controls, KPI reporting risked inaccuracies that could misinf
 ---
 
 ## 🏗 Data Architecture
-
+![Data Architecture](architecture.png)
 **Raw CSV Files**  
 → PostgreSQL Staging Tables  
 → Data Cleaning & Standardization Layer  
