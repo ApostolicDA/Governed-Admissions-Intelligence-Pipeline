@@ -19,6 +19,21 @@ Designed and implemented a governed admissions analytics system that:
 • Implemented SQL-based metric reconciliation to ensure BI accuracy  
 
 This project demonstrates production-style data engineering, governance, and business intelligence validation.
+
+## 👥 Team & Delivery Context
+
+This was a **real client engagement** delivered as part of the Excellerate 
+internship program at St. Louis University.
+
+- **Role:** Team Lead — coordinated a cross-timezone international team
+- **Format:** Weekly deliverables with structured reports submitted to supervisors
+- **Output:** Live dashboard deployed and validated for actual university stakeholders
+- **Duration:** 4 weeks of structured sprints with documented weekly progress
+
+This was not a solo portfolio exercise. It was team-based, deadline-driven, 
+client-facing analytics work — the closest thing to a real BI job environment 
+a portfolio project can demonstrate.
+
 ## 📌 Overview
 
 This project delivers an end-to-end admissions analytics pipeline integrating four fragmented datasets (**Applicant, Connect, Outreach, SEVIS**) into a governed PostgreSQL warehouse powering a fully validated executive dashboard in Looker Studio.
