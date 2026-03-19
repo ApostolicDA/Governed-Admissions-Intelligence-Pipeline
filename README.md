@@ -2,6 +2,11 @@
 # 🎓 Governed Admissions Intelligence Pipeline  
 **From Raw Admissions Data to Validated Executive Dashboard**
 
+## Problem Statement
+
+A US university's admissions data lived across 4 disconnected systems 
+with no validated source of truth. This project fixes that.
+
 ---
 ## 🚀 What I Built
 
