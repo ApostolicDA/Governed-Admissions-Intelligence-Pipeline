@@ -75,6 +75,7 @@ Key dashboard features:
 • Visa approval and outreach tracking  
 
 ![Executive Dashboard](executive_dashboard.png.png)
+👉 [View Live Looker Studio Dashboard](https://lookerstudio.google.com/reporting/82aa2ea5-513e-4153-aeb2-1f4627d318b7/page/FYcoF)
 ---
 ## 🧹 Data Engineering Highlights
 
